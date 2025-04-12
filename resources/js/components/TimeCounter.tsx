@@ -23,7 +23,7 @@ const TimeCounter = () => {
         seconds: 0
     });
 
-    // Transform scroll progress for each number
+    // Transform scroll progress for initial number reveals
     const sections = ['years', 'months', 'weeks', 'days', 'hours', 'minutes', 'seconds'] as const;
     type Section = typeof sections[number];
     
@@ -35,6 +35,44 @@ const TimeCounter = () => {
             x: useTransform(scrollYProgress, [start, end], [-50, 0])
         };
     });
+
+    // Transform for the shrinking animation
+    const containerScale = useTransform(
+        scrollYProgress,
+        [0.85, 1],
+        [1, 0.4]  // Made slightly smaller to fit better at the top
+    );
+
+    const containerY = useTransform(
+        scrollYProgress,
+        [0.85, 1],
+        ['0%', '-50vh']  // Moved higher up
+    );
+
+    // Title fade out and move up faster
+    const titleOpacity = useTransform(
+        scrollYProgress,
+        [0.85, 0.9],
+        [1, 0]
+    );
+
+    const titleY = useTransform(
+        scrollYProgress,
+        [0.85, 0.9],
+        [0, -50]
+    );
+
+    const numbersScale = useTransform(
+        scrollYProgress,
+        [0.85, 1],
+        [1, 0.6]
+    );
+
+    const gridGap = useTransform(
+        scrollYProgress,
+        [0.85, 1],
+        ['2rem', '0.4rem']  // Slightly tighter gap for better fit
+    );
 
     useEffect(() => {
         // Set start date (April 14, 2024 00:00:00 UTC)
@@ -80,17 +118,33 @@ const TimeCounter = () => {
     }, []);
 
     return (
-        <div className="text-center">
+        <motion.div 
+            className="text-center"
+            style={{ 
+                scale: containerScale,
+                y: containerY
+            }}
+        >
             <motion.h1 
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
+                style={{ 
+                    opacity: titleOpacity,
+                    y: titleY
+                }}
                 className="mb-16 text-6xl font-mono text-white/80"
             >
                 We've been together for...
             </motion.h1>
 
-            <div className="grid grid-cols-7 gap-8">
+            <motion.div 
+                className="grid grid-cols-7"
+                style={{ 
+                    scale: numbersScale,
+                    gap: gridGap
+                }}
+            >
                 {sections.map((section, index) => (
                     <motion.div 
                         key={section}
@@ -108,8 +162,8 @@ const TimeCounter = () => {
                         </div>
                     </motion.div>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 
