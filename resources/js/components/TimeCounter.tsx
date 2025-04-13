@@ -75,39 +75,30 @@ const TimeCounter = () => {
     );
 
     useEffect(() => {
-        // Set start date (April 14, 2024 00:00:00 UTC)
-        const startDate = new Date(Date.UTC(2024, 3, 14, 0, 0, 0));
+        // Set start date (April 14, 2024 14:11:00 UTC+2)
+        const startDate = new Date('2024-04-14T14:11:00+02:00');
         
         const updateTime = () => {
             const now = new Date();
-            const difference = now.getTime() - startDate.getTime();
-
-            if (difference <= 0) {
-                setTimeElapsed({ 
-                    years: 0, months: 0, weeks: 0, days: 0,
-                    hours: 0, minutes: 0, seconds: 0 
-                });
-                return;
-            }
-
+            const difference = Math.abs(now.getTime() - startDate.getTime());
+            
+            // Calculate total values for each unit
             const totalSeconds = Math.floor(difference / 1000);
-            const totalMinutes = Math.floor(totalSeconds / 60);
-            const totalHours = Math.floor(totalMinutes / 60);
-            const totalDays = Math.floor(totalHours / 24);
-
-            const years = Math.floor(totalDays / 365);
-            const remainingDays = totalDays % 365;
-            const months = Math.floor(remainingDays / 30);
-            const remainingDaysAfterMonths = remainingDays % 30;
-            const weeks = Math.floor(remainingDaysAfterMonths / 7);
-            const days = remainingDaysAfterMonths % 7;
-            const hours = totalHours % 24;
-            const minutes = totalMinutes % 60;
-            const seconds = totalSeconds % 60;
+            const totalMinutes = Math.floor(difference / (1000 * 60));
+            const totalHours = Math.floor(difference / (1000 * 60 * 60));
+            const totalDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const totalWeeks = Math.floor(difference / (1000 * 60 * 60 * 24 * 7));
+            const totalMonths = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44)); // Average month length
+            const totalYears = Math.floor(difference / (1000 * 60 * 60 * 24 * 365.25)); // Account for leap years
 
             setTimeElapsed({ 
-                years, months, weeks, days,
-                hours, minutes, seconds 
+                years: totalYears,
+                months: totalMonths,
+                weeks: totalWeeks,
+                days: totalDays,
+                hours: totalHours,
+                minutes: totalMinutes,
+                seconds: totalSeconds
             });
         };
 

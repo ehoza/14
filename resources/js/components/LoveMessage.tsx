@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useTransform, cubicBezier, AnimatePresence } from 'framer-motion';
+import { Link } from '@inertiajs/react';
 
 const LoveMessage = () => {
     const { scrollYProgress } = useScroll();
@@ -271,15 +272,28 @@ const LoveMessage = () => {
                         ))}
                     </div>
 
-                    <motion.button
-                        className="mt-8 px-6 py-3 bg-pink-500/20 hover:bg-pink-500/30 text-white rounded-lg backdrop-blur-sm border border-pink-500/30 transition-all duration-300 pointer-events-auto"
-                        onClick={() => setIsGalleryOpen(true)}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.5 }}
-                    >
-                        View all of them
-                    </motion.button>
+                    <div className="flex gap-4 justify-center">
+                        <motion.button
+                            className="mt-8 px-6 py-3 bg-pink-500/20 hover:bg-pink-500/30 text-white rounded-lg backdrop-blur-sm border border-pink-500/30 transition-all duration-300 pointer-events-auto"
+                            onClick={() => setIsGalleryOpen(true)}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6, duration: 0.5 }}
+                        >
+                            View all of them
+                        </motion.button>
+
+                        <Link href="/next-page" className="pointer-events-auto">
+                            <motion.button
+                                className="mt-8 px-6 py-3 bg-pink-500/20 hover:bg-pink-500/30 text-white rounded-lg backdrop-blur-sm border border-pink-500/30 transition-all duration-300"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.7, duration: 0.5 }}
+                            >
+                                Next Page
+                            </motion.button>
+                        </Link>
+                    </div>
                 </motion.div>
             </motion.div>
 

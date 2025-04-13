@@ -1,0 +1,29 @@
+> vite build
+
+vite v6.2.0 building for production...
+✓ 2379 modules transformed.
+public/build/manifest.json                          8.16 kB │ gzip:   0.98 kB
+public/build/assets/app-Cf5ZcR1M.css               78.58 kB │ gzip:  13.16 kB
+public/build/assets/text-link-Ch-ZuGhd.js           0.36 kB │ gzip:   0.26 kB
+public/build/assets/index-i2go6sI8.js               0.55 kB │ gzip:   0.40 kB
+public/build/assets/verify-email-BkB02uyC.js        1.06 kB │ gzip:   0.60 kB
+public/build/assets/confirm-password-BKf1ERgl.js    1.23 kB │ gzip:   0.65 kB
+public/build/assets/auth-layout-CR8RMFea.js         1.37 kB │ gzip:   0.65 kB
+public/build/assets/forgot-password-BceeOwws.js     1.48 kB │ gzip:   0.76 kB
+public/build/assets/label-B9YoEw4m.js               1.57 kB │ gzip:   0.78 kB
+public/build/assets/dashboard-C_RiIxAQ.js           1.89 kB │ gzip:   0.65 kB
+public/build/assets/reset-password-01jxGkv9.js      1.98 kB │ gzip:   0.75 kB
+public/build/assets/layout-StWxSbd3.js              2.28 kB │ gzip:   0.98 kB
+public/build/assets/register-BD19ctsi.js            2.47 kB │ gzip:   0.92 kB
+public/build/assets/appearance-SFFqhKmr.js          2.61 kB │ gzip:   1.11 kB
+public/build/assets/password-DV0Fj-gD.js            2.66 kB │ gzip:   1.00 kB
+public/build/assets/index-gnit4kMK.js               4.75 kB │ gzip:   1.96 kB
+public/build/assets/login-BEQllqR-.js               5.54 kB │ gzip:   2.45 kB
+public/build/assets/profile-DAedXsOm.js             6.52 kB │ gzip:   2.34 kB
+public/build/assets/NextPage-HqhAX1V_.js            7.97 kB │ gzip:   1.44 kB
+public/build/assets/transition-DSRqpqyd.js         14.33 kB │ gzip:   5.68 kB
+public/build/assets/Landing-NlyK3nnl.js            22.78 kB │ gzip:   7.31 kB
+public/build/assets/app-logo-icon-XZP87Ev8.js      28.11 kB │ gzip:   9.77 kB
+public/build/assets/app-layout-CPVW87wL.js        105.86 kB │ gzip:  33.54 kB
+public/build/assets/FloatingHearts-D02PBRZE.js    114.71 kB │ gzip:  38.10 kB
+public/build/assets/app-BOXk11gp.js               324.41 kB │ gzip: 106.22 kB
