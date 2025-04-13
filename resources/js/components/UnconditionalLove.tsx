@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HeartBowDecoration = () => (
     <>
@@ -101,6 +102,90 @@ const UnconditionalLove = () => {
                             And every day we're apart, I miss you a little extra
                         </p>
                     </div>
+                </div>
+
+                <div className="mt-32 relative">
+                    <motion.div
+                        className="p-12 rounded-2xl bg-gradient-to-br from-pink-500/10 to-white/5 backdrop-blur-sm border-2 border-pink-300/30 hover:border-pink-400/50 transition-all duration-500 relative group"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                    >
+                        <HeartBowDecoration />
+                        
+                        {/* Floating hearts background */}
+                        <div className="absolute inset-0 overflow-hidden">
+                            {[...Array(15)].map((_, i) => (
+                                <motion.div
+                                    key={i}
+                                    className="absolute"
+                                    style={{
+                                        left: `${Math.random() * 100}%`,
+                                        top: `${Math.random() * 100}%`,
+                                    }}
+                                    animate={{
+                                        y: [0, -20, 0],
+                                        x: [0, Math.random() * 10 - 5, 0],
+                                        scale: [1, 1.2, 1],
+                                        opacity: [0.3, 0.6, 0.3],
+                                    }}
+                                    transition={{
+                                        duration: 3 + Math.random() * 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: i * 0.2,
+                                    }}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-pink-300/30" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                                    </svg>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <motion.p
+                            className="text-3xl font-mono text-white/90 leading-relaxed text-center relative z-10 group-hover:text-white transition-colors"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                        >
+                            thank you for making me feel loved.
+                            <br />
+                            thank you for the laughs, the smiles
+                            <br />
+                            and everything in between.
+                            <br />
+                            <motion.span
+                                className="text-pink-300 font-semibold block mt-6"
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                thank you for making me the happiest i've ever been.
+                            </motion.span>
+                            <motion.span
+                                className="text-4xl text-pink-400 font-bold block mt-8"
+                                animate={{
+                                    scale: [1, 1.1, 1],
+                                    rotate: [0, 2, -2, 0],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                i love you so much.
+                            </motion.span>
+                        </motion.p>
+                    </motion.div>
                 </div>
             </div>
         </div>
