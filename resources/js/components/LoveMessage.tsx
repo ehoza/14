@@ -89,22 +89,22 @@ const LoveMessage = () => {
     // Photos section animations
     const photosOpacity = useTransform(
         scrollYProgress,
-        [0.99, 1],
-        [0, 1],
+        [0.995, 1, 1.01, 1.02],
+        [0, 1, 1, 0],
         { ease: cubicBezier(0.4, 0, 0.2, 1) }
     );
 
     const photosY = useTransform(
         scrollYProgress,
-        [0.99, 1],
-        ['100%', '0%'],
+        [0.995, 1, 1.02],
+        ['100%', '0%', '-100%'],
         { ease: cubicBezier(0, 0, 0, 1) }
     );
 
     const photosScale = useTransform(
         scrollYProgress,
-        [0.99, 1],
-        [0.8, 1],
+        [0.995, 1, 1.01, 1.02],
+        [0.8, 1, 1, 0.8],
         { ease: cubicBezier(0, 0, 0.2, 1) }
     );
 
@@ -278,7 +278,7 @@ const LoveMessage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6, duration: 0.5 }}
                     >
-                        View All Memories
+                        View all of them
                     </motion.button>
                 </motion.div>
             </motion.div>
